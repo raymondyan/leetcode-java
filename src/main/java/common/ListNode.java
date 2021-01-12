@@ -21,4 +21,16 @@ public class ListNode {
 
     this.next = next;
   }
+
+  @Override
+  public String toString() {
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append(val).append(",");
+    ListNode nextNode = next;
+    while (nextNode != null) {
+      stringBuilder.append(nextNode.val).append(",");
+      nextNode = nextNode.next;
+    }
+    return stringBuilder.toString();
+  }
 }
