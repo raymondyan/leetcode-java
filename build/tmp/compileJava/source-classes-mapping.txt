@@ -1,6 +1,0 @@
-Solution1.java
- Solution1
-Solution2.java
- Solution2
-common/ListNode.java
- common.ListNode

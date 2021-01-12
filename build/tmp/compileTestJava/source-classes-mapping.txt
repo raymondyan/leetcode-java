@@ -1,6 +1,0 @@
-common/ListNodeTest.java
- common.ListNodeTest
-Solution1Test.java
- Solution1Test
-Solution2Test.java
- Solution2Test
