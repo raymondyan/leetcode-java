@@ -13,7 +13,7 @@ public class TreeNode {
     val = x;
   }
 
-  TreeNode(Integer[] y) {
+  public TreeNode(Integer[] y) {
     val = y[0];
     if(y[1] != null) left = new TreeNode(y[1]);
     if(y[2] != null) right = new TreeNode(y[2]);
