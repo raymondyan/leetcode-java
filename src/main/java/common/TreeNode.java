@@ -21,6 +21,22 @@ public class TreeNode {
     iterateNext(right, y, 3, 1);
   }
 
+  public int[] treeHeights(){
+    int leftHeight = 1;
+    if (this.left != null) leftHeight+=treeHeight(left);
+    int rightHeight = 1;
+    if (this.right != null) rightHeight+=treeHeight(right);
+    return new int[]{leftHeight, rightHeight};
+  }
+
+  private int treeHeight(TreeNode node) {
+    if(node == null || (node.right == null && node.left == null )) {
+      return 1;
+    } else {
+      return 1 + Math.max(treeHeight(node.left), treeHeight(node.right));
+    }
+  }
+
   private void iterateNext(TreeNode parent, Integer[] y, int level, int parentRange) {
     if (y.length >= Math.pow(2, level) - 1) {
       Integer leftValue = y[(int) Math.pow(2, level - 1) + 2 * parentRange - 1];
@@ -37,7 +53,6 @@ public class TreeNode {
       }
     }
   }
-
 
   public Integer[] toArray() {
     List<Integer> nodes = new ArrayList<>();
@@ -73,6 +88,5 @@ public class TreeNode {
       readNext(nodes, next);
     }
   }
-
 
 }

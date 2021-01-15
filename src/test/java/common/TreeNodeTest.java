@@ -1,6 +1,6 @@
 package common;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -21,5 +21,12 @@ class TreeNodeTest {
   void name() {
     TreeNode treeNode = new TreeNode(new Integer[]{3,9,20,null,null,15,7});
     assertArrayEquals(new Integer[]{3,9,20,null,null,15,7}, treeNode.toArray());
+  }
+
+  @Test
+  void treeHeightTest() {
+    TreeNode treeNode = new TreeNode(new Integer[]{3,9,20,null,null,15,7});
+    int[] ints = treeNode.treeHeights();
+    assertArrayEquals(new int[]{2,3}, ints);
   }
 }
