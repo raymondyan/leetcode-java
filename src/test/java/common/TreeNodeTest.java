@@ -29,4 +29,10 @@ class TreeNodeTest {
     int[] ints = treeNode.treeHeights();
     assertArrayEquals(new int[]{2,3}, ints);
   }
+
+  @Test
+  void treeConstructor() {
+    TreeNode treeNode = new TreeNode(new Integer[]{1, 2, 3, null, 5});
+    assertArrayEquals(new Integer[]{1, 2, 3, null, 5}, treeNode.toArray());
+  }
 }

@@ -38,14 +38,16 @@ public class TreeNode {
   }
 
   private void iterateNext(TreeNode parent, Integer[] y, int level, int parentRange) {
-    if (y.length >= Math.pow(2, level) - 1) {
-      Integer leftValue = y[(int) Math.pow(2, level - 1) + 2 * parentRange - 1];
+    if (y.length > Math.pow(2, level-1)) {
+      double rightIndex = Math.pow(2, level - 1) + 2 * parentRange;
+      double leftIndex = rightIndex - 1;
+      Integer leftValue = leftIndex < y.length ? y[(int) leftIndex] : null;
       if (leftValue != null) {
         TreeNode leftNode = new TreeNode(leftValue);
         parent.left = leftNode;
         iterateNext(leftNode, y, level + 1, 2 * parentRange);
       }
-      Integer rightValue = y[(int) Math.pow(2, level - 1) + 2 * parentRange];
+      Integer rightValue = rightIndex < y.length ? y[(int) rightIndex] : null;
       if (rightValue != null){
         TreeNode rightNode = new TreeNode(rightValue);
         parent.right = rightNode;
@@ -61,6 +63,13 @@ public class TreeNode {
     next.add(left);
     next.add(right);
     readNext(nodes, next);
+    for (int i = nodes.size() - 1; i > 0 ; i--) {
+      if (nodes.get(i) == null){
+        nodes.remove(i);
+      } else {
+        break;
+      }
+    }
     return nodes.toArray(new Integer[0]);
   }
 
