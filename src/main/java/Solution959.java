@@ -27,6 +27,8 @@ public class Solution959 {
             unionFind.union(index + 2, index + 3);
             break;
         }
+        // 右下的两格可以直接合并
+        // 向右合并：1（当前）、3（左边列）
         if (j + 1 < N) {
           unionFind.union(index + 1, 4 * (i * N + j + 1) + 3);
         }
