@@ -1,7 +1,4 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Set;
 
 public class Solution1579 {
   public int maxNumEdgesToRemove(int n, int[][] edges) {
@@ -67,13 +64,13 @@ class UnionFind {
     }
   }
 
-  public int findset(int x) {
-    return parent[x] == x ? x : (parent[x] = findset(parent[x]));
+  public int findSet(int x) {
+    return parent[x] == x ? x : (parent[x] = findSet(parent[x]));
   }
 
   public boolean unite(int x, int y) {
-    x = findset(x);
-    y = findset(y);
+    x = findSet(x);
+    y = findSet(y);
     if (x == y) {
       return false;
     }
@@ -89,8 +86,8 @@ class UnionFind {
   }
 
   public boolean connected(int x, int y) {
-    x = findset(x);
-    y = findset(y);
+    x = findSet(x);
+    y = findSet(y);
     return x == y;
   }
 }
